@@ -1,0 +1,68 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:k="http://primefaces.org/ui"
+                >   
+    <ui:define name="title">Grupo Scout 39 Santo Angel - Málaga</ui:define>
+    
+    <ui:define name="content">
+        <div id="tag-light-grey">
+            <div class="tag-light-grey container">
+                <h1>Educandos</h1>
+                
+    <h:panelGrid columns="2" cellpadding="5">
+        <k:outputLabel for="inline" value="Inline:" />
+        <k:calendar id="inline" value="#{calendarView.date1}" mode="inline" />
+ 
+        <k:outputLabel for="popup" value="Popup:" />
+        <k:calendar id="popup" value="#{calendarView.date2}" />
+ 
+        <k:outputLabel for="button" value="Button:" />
+        <k:calendar id="button" value="#{calendarView.date3}" showOn="button" />
+ 
+        <k:outputLabel for="event" value="Select Event:" />
+        <k:calendar id="event" value="#{calendarView.date4}">
+            <k:ajax event="dateSelect" listener="#{calendarView.onDateSelect}" update="msgs" />
+        </k:calendar>
+ 
+        <k:outputLabel for="german" value="German:" />
+        <k:calendar id="german" value="#{calendarView.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+ 
+        <k:outputLabel for="restricted" value="Restricted:" />
+        <k:calendar id="restricted" value="#{calendarView.date6}" mindate="4/1/14" maxdate="7/1/14" />
+ 
+        <k:outputLabel for="multi" value="Multiple:" />
+        <k:calendar id="multi" value="#{calendarView.date7}" pages="3" />
+ 
+        <k:outputLabel for="effect" value="Effect:" />
+        <k:calendar id="effect" value="#{calendarView.date8}" effect="fold" />
+ 
+        <k:outputLabel for="mask" value="Mask:" />
+        <k:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" />
+ 
+        <k:outputLabel for="datetime" value="Datetime:" />
+        <k:calendar id="datetime" value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
+ 
+        <k:outputLabel for="time" value="Time:" />
+        <k:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm" timeOnly="true"  />
+    </h:panelGrid>
+            </div>
+        </div>
+        <div id="tag-grey">
+            <div class="container">
+                
+                    <p>
+                    </p>
+            </div>
+        </div>
+        <div id="tag-light-grey">
+            <div class="container">
+                
+            </div>
+        </div>
+ </ui:define>
+</ui:composition>
+
