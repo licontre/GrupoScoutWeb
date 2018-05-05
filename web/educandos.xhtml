@@ -9,36 +9,75 @@
                   >   
     <ui:define name="title">Grupo Scout 39 Santo Angel - Málaga</ui:define>
     <h:head>
-        <link href="/css/verdocumento.css" rel="stylesheet" type="text/css" />
+        <link href="./css/educandos.css" rel="stylesheet" type="text/css"/>
+        <script type='text/javascript' src="./JS/jquery.js"/>
+        <!--Bootstrap-->
+        <link href="css/bootstrap.css" rel="stylesheet"/>
+        <script type='text/javascript' src="./JS/bootstrap.js"/>
     </h:head>
     <ui:define name="content">
         <div id="tag-light-grey">
             <div class="tag-light-grey container">
                 <h1>Educandos</h1>
-                 <ul class="list-group">
-                        <li class="list-group-item">
-                            <div>
-                                <h:outputLabel>Doc1</h:outputLabel>                      
-                                <h:button value="Ver" id="boton_ver"></h:button>
-                                <h:button value="Editar" id="boton_editar"></h:button>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div>
-                                <h:outputLabel>Doc1</h:outputLabel>                      
-                                <h:button value="Ver" id="boton_ver"></h:button>
-                                <h:button value="Editar" id="boton_editar"></h:button>
-                            </div>
-                        </li>
-                 </ul>
+                    
             </div>
         </div>
         
-        <div>
-            <!--Calendario -->
+        
+        
+        <div class="table-responsive">
+            <h:panelGrid class="table" columns="2">
+                <h:panelGroup>
+                    <h3>Documentos</h3>
+                    <h:form>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div>
+                                    <h:outputLabel>Doc1</h:outputLabel>                      
+                                    <h:button value="Ver"></h:button>
+                                    <h:button value="Editar"></h:button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <h:outputLabel>Doc2</h:outputLabel>                      
+                                    <h:button value="Ver"></h:button>
+                                    <h:button value="Editar"></h:button>
+                                </div>
+                            </li>
+                         </ul>
+                    </h:form>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <h3>Eventos</h3>
+                    <h:form>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div>
+                                    <h:outputLabel>Campamento</h:outputLabel>                      
+                                    <h:button value="Ver"></h:button>
+                                    <h:button value="Editar"></h:button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <h:outputLabel>Excursion</h:outputLabel>                      
+                                    <h:button value="Ver" style="text-align: right"></h:button>
+                                    <h:button value="Editar" style="text-align: right"></h:button>
+                                </div>
+                            </li>
+                        </ul>
+                    </h:form>
+                </h:panelGroup>
+            </h:panelGrid>
+        </div> 
+        
+        
+        
+        
+        <div class="tag-light-grey container">
+             
         </div>
-        
-        
  </ui:define>
 </ui:composition>
 
