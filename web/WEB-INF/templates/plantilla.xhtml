@@ -1,26 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      >
     <h:head>
         <title> <ui:insert name="title"> TODO supply a title </ui:insert> </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link href="./css/PlantillaCss.css" rel="stylesheet" type="text/css" />
         <link href="./css/index.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>               
- 
+        <script type='text/javascript' src="./JS/jquery.js"/>
+        <!--Bootstrap-->
+        <link href="css/bootstrap.css" rel="stylesheet"/>
+        <script type='text/javascript' src="./JS/bootstrap.js"/>     
     </h:head>
     <h:body>
         <nav id="navegar" class="navbar navbar-expand-sm fixed-top">
@@ -30,13 +25,11 @@ and open the template in the editor.
                         <h:graphicImage value="/imagenes/Plantilla/logo.png"/>  
                     </a>
                 </div>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <h:button class="nav-link" value="Inicio" outcome="/index.xhtml"/>
                     </li>
-                    <li class="nav-item">
-                        <a href="http://39.scoutsdeandalucia.org/blog/"><h:commandButton class="nav-link" value="Blog" action="http://39.scoutsdeandalucia.org/blog/"/></a>
-                    </li>
+                   
                     <li class="nav-item">                  
                         <h:button class="nav-link" value="Ubicación" outcome="/ubicacion.xhtml"/>
                     </li>
@@ -63,9 +56,9 @@ and open the template in the editor.
                         <h:commandButton class="nav-link" value="Resgistrate" action="#"/>                 
                     </li>
                     <li class="nav-item">
-                        <h:button class="nav-link" value="Login" outcome="/login.xhtml"/>
+                        <h:commandButton class="nav-link" value="Login" action="#"/>                 
                     </li>
-                </ul>>
+                </ul>                
             </div>
         </nav>
         <div id="cuerpoPlantilla">
