@@ -1,0 +1,101 @@
+<ui:composition template="/WEB-INF/templates/plantilla_1.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">   
+    <ui:define name="title">Secretaría</ui:define>
+<ui:define name="content">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css"></link>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+      <title>Modifica Datos</title>
+  </head>
+
+  <body>
+      <h>Documentación en trámite</h>
+    <div class="container-fluid text-center">
+      <div id="buscador" class="container col-10 mx-sm-5 p-4 rounded-top">
+          <form class="form-inline mt-2 mt-md-0">
+              <input id="searchText" type="text" name="buscar" placeholder="Buscar" onkeyup='doSearch()'></input>
+            <button class="btn my-2 my-sm-0" style="color: #3a4d47; background-color: #FFF">Buscar</button>
+          </form>
+      </div>
+    </div>
+    <div class="col-11 mx-sm-5 mb-5 text-center">
+			<table id="tabla" class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th>Asunto</th>
+            <th>Usuario</th>
+            <th>Rol</th>
+            <th>Fecha Entrega</th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td>Autorizaciones Excursión</td>
+		        <td>Pepito Pepitez</td>
+            <td>Coordinador</td>
+            <td>05-05-2018</td>
+		        <td>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Ver</button>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                  <div class="modal-content ">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Autorizaciones Excursión</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <embed src="AUTORIZACIONLidera.pdf" frameborder="0" width="100%" height="400px"></embed>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Notificación de Pago</td>
+            <td>Marta Martínez</td>
+            <td>Educando</td>
+            <td>03-05-2018</td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Ver</button></td>
+          </tr>
+          <tr>
+            <td>Matrícula</td>
+            <td>Fernando Fernández</td>
+            <td>Responsable</td>
+            <td>01-05-2018</td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Ver</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script src="buscador.js"></script>
+</ui:define>
+</ui:composition>
