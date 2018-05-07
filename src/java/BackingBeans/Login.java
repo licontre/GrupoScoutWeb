@@ -21,14 +21,14 @@ import modeloJPA.Usuario.Cargo;
 public class Login implements Controlador{
     
     private String usuario;
-    private String contrasenia;
+    private String password;
     private List<Usuario> usuarios;
     
     @Inject
     private ControlAutorizacion ctrl;
     
     public Login(){
-        usuarios = new ArrayList<Usuario>();
+        usuarios = new ArrayList<>();
         usuarios.add(new Usuario("castor", "castor", Cargo.CASTORES));
         usuarios.add(new Usuario("admin", "admin", Cargo.ADMIN));
     }
@@ -37,16 +37,16 @@ public class Login implements Controlador{
         return usuario;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getPassword() {
+        return password;
     }
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String autenticar() {
@@ -58,12 +58,16 @@ public class Login implements Controlador{
         do{
             aux = it.next();
             if(aux.getNombreusuario().equals(getUsuario()))
-                find = true;
+                find = true;            
         }while(it.hasNext() && !find);
         FacesContext ctx = FacesContext.getCurrentInstance();
+        System.out.println("------------------------------------------------");
+        System.out.println("usuario: "+aux.getNombreusuario());
+        System.out.println("pass: "+aux.getPassword());
+        System.out.println("------------------------------------------------");
         if(!find)
             ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "El usuario no existe", "El usuario no existe"));
-        else if(!aux.getContrasenia().equals(contrasenia))
+        else if(!aux.getPassword().equals(password))
             ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "La contraseña es incorrecta","La contraseña es incorrecta"));
         
         else{
