@@ -61,9 +61,9 @@ public class Usuario implements Serializable {
     private List<Documento> documentos;
    
     //Este metodo es especifico para la tarea 2
-    public Usuario(String nombreusuario, String contrasenia, Cargo cargo ){
+    public Usuario(String nombreusuario, String password, Cargo cargo ){
         setNombreusuario(nombreusuario);
-        setContrasenia(contrasenia);
+        setPassword(password);
         setCargo(cargo);
     }
     public Long getId() {
@@ -122,12 +122,6 @@ public class Usuario implements Serializable {
         this.calle = calle;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-    public void setContrasenia(String contrsenia) {
-        this.contrasenia = contrasenia;
-    }
     
     public Cargo getCargo(){
         return cargo;
