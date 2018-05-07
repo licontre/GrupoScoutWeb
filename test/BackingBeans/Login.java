@@ -5,6 +5,7 @@
  */
 package BackingBeans;
 
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,14 +17,7 @@ import javax.inject.Named;
 import modeloJPA.Usuario;
 import modeloJPA.Usuario.Cargo;
 
-/**
- *
- * @author PC
- */
-
-@Named(value = "login")
-@RequestScoped
-public class Login {
+public class Login implements Controlador{
     
     private String usuario;
     private String contrasenia;
@@ -78,5 +72,10 @@ public class Login {
         }
         
         return cad;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+       this.autenticar();
     }
 }
