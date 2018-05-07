@@ -6,8 +6,6 @@
 package BackingBeans;
 
 import java.awt.event.ActionListener;
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 
 public interface Controlador extends ActionListener {
 

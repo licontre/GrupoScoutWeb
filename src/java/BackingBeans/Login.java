@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BackingBeans;
 
 import java.awt.event.ActionEvent;
@@ -13,10 +8,16 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
+import javax.inject.*;
 import modeloJPA.Usuario;
 import modeloJPA.Usuario.Cargo;
 
+/**
+ *
+ * @author PC
+ */
+@Named(value = "login")
+@RequestScoped
 public class Login implements Controlador{
     
     private String usuario;
@@ -24,7 +25,7 @@ public class Login implements Controlador{
     private List<Usuario> usuarios;
     
     @Inject
-    ControlAutorizacion ctrl;
+    private ControlAutorizacion ctrl;
     
     public Login(){
         usuarios = new ArrayList<Usuario>();
@@ -50,13 +51,13 @@ public class Login implements Controlador{
 
     public String autenticar() {
                
-        Iterator<Usuario> it = usuarios.iterator();
+        Iterator<Usuario> it = getUsuarios().iterator();
         Usuario aux =null;
         boolean find = false;
         String cad=null;
         do{
             aux = it.next();
-            if(aux.getNombreusuario().equals(usuario))
+            if(aux.getNombreusuario().equals(getUsuario()))
                 find = true;
         }while(it.hasNext() && !find);
         FacesContext ctx = FacesContext.getCurrentInstance();
@@ -67,8 +68,8 @@ public class Login implements Controlador{
         
         else{
             
-            ctrl.setUsuario(aux);
-            cad=ctrl.home();
+            getCtrl().setUsuario(aux);
+            cad=getCtrl().home();
         }
         
         return cad;
@@ -76,6 +77,34 @@ public class Login implements Controlador{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       this.autenticar();
+        this.autenticar();
+    }
+
+    /**
+     * @return the usuarios
+     */
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    /**
+     * @param usuarios the usuarios to set
+     */
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    /**
+     * @return the ctrl
+     */
+    public ControlAutorizacion getCtrl() {
+        return ctrl;
+    }
+
+    /**
+     * @param ctrl the ctrl to set
+     */
+    public void setCtrl(ControlAutorizacion ctrl) {
+        this.ctrl = ctrl;
     }
 }
