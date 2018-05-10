@@ -32,7 +32,7 @@ public class ControlAutorizacion implements Serializable {
     public String home() {
         String cad=null;
          if(usuario.getCargo()==Usuario.Cargo.CASTORES){
-            cad="index.xhtml";
+            cad="inicio.xhtml";
         }else{
             cad="index.xhtml";
         }
@@ -43,9 +43,9 @@ public class ControlAutorizacion implements Serializable {
     {
         // Destruye la sesión (y con ello, el ámbito de este bean)
         FacesContext ctx = FacesContext.getCurrentInstance();
-        ctx.getExternalContext();
+        //ctx.getExternalContext().invalidateSession();
         usuario = null;
-        return "login.xhtml";
+        return "index.xhtml";
     }
 
     /**
