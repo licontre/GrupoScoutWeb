@@ -28,6 +28,7 @@ import javax.servlet.http.Part;
 public class ControlDocumento implements Serializable {
 
     private Part archivo;
+    
     private String nombre_usuario;
 
     public String getNombre_usuario() {
