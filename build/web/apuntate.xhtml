@@ -1,0 +1,171 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">   
+    <ui:define name="title">Grupo Scout 39 Santo Angel - Málaga</ui:define>
+    
+    <ui:define name="content">
+        <h:head>
+            <link href="./css/apuntate.css" rel="stylesheet" type="text/css" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </h:head>
+        <div id="tag-light-grey">
+            <div class="tag-light-grey container">
+                <h1>Apuntate</h1>
+                
+            </div>
+        </div>
+        <div id="tag-grey">
+            <div class="container">
+                    <div id="myCarousel" class="carousel slide">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li class="item1 active"></li>
+                    <li class="item2"></li>
+                    <li class="item3"></li>
+                    <li class="item4"></li>
+                    <li class="item5"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <h:graphicImage value="/imagenes/Apuntate/manada.jpg" class="tales" alt="La Manada"/>
+                      <div class="carousel-caption">
+                        <h3>La Manada</h3>
+                        <p>De 8 a 11 años.</p>
+                      </div>
+                    </div>
+
+                    <div class="item">
+                      <h:graphicImage value="/imagenes/Apuntate/tropa.jpg" class="tales" alt="La Tropa"/>
+                      <div class="carousel-caption">
+                        <h3>La Tropa</h3>
+                        <p>De 11 a 14 años.</p>
+                      </div>
+                    </div>
+
+                    <div class="item">
+                        <h:graphicImage value="/imagenes/Apuntate/unidad.jpg" class="tales" alt="La Unidad"/>
+                        <div class="carousel-caption">
+                            <h3>La Unidad</h3>
+                            <p>De 14 a 17 años.</p>
+                        </div>
+                    </div>
+                  
+                    <div class="item">
+                        <h:graphicImage value="/imagenes/Apuntate/clan.jpg" class="tales" alt="El Clan"/>
+                        <div class="carousel-caption">
+                            <h3>El clan</h3>
+                            <p>De 17 a 21 años.</p>
+                        </div>
+                    </div>
+                      
+                    <div class="item">
+                        <h:graphicImage value="/imagenes/Apuntate/adultos.jpg" class="tales" alt="Los Responsables"/>
+                        <div class="carousel-caption">
+                            <h3>Los Responsables.</h3>
+                            <p>Los adultos que deseen formar parte de este proyecto educativo también son bienvenidos.</p>
+                        </div>
+                    </div>
+                  
+                  </div>
+
+                   <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                </div>                
+                <script>
+                    $(document).ready(function(){
+                        // Activate Carousel
+                        $("#myCarousel").carousel();
+
+                        // Enable Carousel Indicators
+                        $(".item1").click(function(){
+                            $("#myCarousel").carousel(0);
+                        });
+                        $(".item2").click(function(){
+                            $("#myCarousel").carousel(1);
+                        });
+                        $(".item3").click(function(){
+                            $("#myCarousel").carousel(2);
+                        });
+                        $(".item4").click(function(){
+                            $("#myCarousel").carousel(3);
+                        });
+                        $(".item5").click(function(){
+                            $("#myCarousel").carousel(4);
+                        });
+
+                        // Enable Carousel Controls
+                        $(".left").click(function(){
+                            $("#myCarousel").carousel("prev");
+                        });
+                        $(".right").click(function(){
+                            $("#myCarousel").carousel("next");
+                        });
+                    });
+                </script>
+            
+            </div>
+        </div>
+        <div  class="container-fluid" align="center" >
+                <div id="formulario">
+                    <h:panelGrid columns="1" id="tabla">
+                        <div class="form-group">
+                            <label for="target_email">Direccion de Correo Electronico:</label>
+                            <br/>
+                            <h:inputText value="correo electronico"/>
+                            <br/>                        
+                        </div>
+                        <div class="form-group">
+                            <label for="source_name">Nombre</label>
+                            <br/>
+                            <h:inputText  value="nombre"/>
+                            <br/>
+                        </div>
+                        <div class="form-group">
+                            <label for="source_email">Telefono</label>
+                            <br/>
+                            <h:inputText value="telefono"/>
+                            <br/>
+                        </div>
+                        <div class="form-group">
+                            <label for="source_email">¿Por qué está enteresado en unirse al grupo?</label>
+                            <br/>
+                            <h:inputTextarea rows="10" cols="40" value="Diganos ..."/>
+                            <br/>
+                        </div>
+                        <div class="form-group">
+                             <label for="source_email">¿Por qué seccion está interesado?</label>
+                            <h:selectOneMenu>
+                                <f:selectItem itemLabel="Manada"></f:selectItem>
+                                <f:selectItem itemLabel="Tropa"></f:selectItem>
+                                <f:selectItem itemLabel="Unidad"></f:selectItem>
+                                <f:selectItem itemLabel="Clan"></f:selectItem>                            
+                                <f:selectItem itemLabel="Responsables"></f:selectItem>
+                            </h:selectOneMenu>
+                            <br/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:commandButton type="submit" value="Enviar" ></h:commandButton>
+                        </div>    
+                </h:panelGrid>
+                </div>
+            
+        </div>
+ </ui:define>
+</ui:composition>
+
