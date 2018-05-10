@@ -25,6 +25,16 @@ public class PagoCuota implements Serializable {
     @ManyToOne
     private Cuota pagoscuota;
     
+    
+    public PagoCuota (Long id, Date fecha, Usuario u, Cuota cuota){
+        
+        this.id = id;
+        this.fecha = fecha;
+        usuario = u;
+        pagoscuota = cuota;
+    }
+    
+    
     public Cuota getPagoscuota(){
         return pagoscuota;
     }
