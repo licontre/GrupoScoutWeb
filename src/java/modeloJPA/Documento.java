@@ -27,6 +27,14 @@ public class Documento implements Serializable {
     @ManyToMany(mappedBy="documentos")
     private List<Usuario> usuarios;
     
+    public Documento(Long id, String nombre, String estado,String copia, String tipo){
+        this.id = id;
+        this.nombre = nombre;
+        this.estado = estado;
+        this.copiadocumento = copia;
+        this.tipo = tipo;
+    }
+    
     public void setEventos(Evento e){
         this.eventos = e;
     }

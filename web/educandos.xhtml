@@ -25,24 +25,19 @@
             <h:panelGrid class="table" columns="2">
                 <h:panelGroup>
                     <h3>Documentos</h3>
-                    <h:form>
-                        <ul class="list-group">
+                    <ui:repeat var="doc" value="#{manejadorDocumentos.documentos}"> 
+                        <h:form>
                             <li class="list-group-item">
-                                <div>
-                                    <h:outputLabel>Doc1</h:outputLabel>                      
-                                    <h:button value="Ver"></h:button>
-                                    <h:button value="Editar"></h:button>
-                                </div>
+                                <h:outputLabel>#{doc.nombre}</h:outputLabel>                      
+                            <h:commandButton value="Ver" action="verdocumento.xhtml">
+                                <f:actionListener binding="#{manejadorDocumentos.setDocumento(doc)}"/>
+                            </h:commandButton> 
+                            <h:commandButton value="Editar" action="editardocumento.xhtml">
+                                <f:actionListener binding="#{manejadorDocumentos.setDocumento(doc)}"/>
+                            </h:commandButton> 
                             </li>
-                            <li class="list-group-item">
-                                <div>
-                                    <h:outputLabel>Doc2</h:outputLabel>                      
-                                    <h:button value="Ver"></h:button>
-                                    <h:button value="Editar"></h:button>
-                                </div>
-                            </li>
-                         </ul>
-                    </h:form>                    
+                        </h:form>
+                    </ui:repeat>                  
                 </h:panelGroup>
                 <h:panelGroup>
                     <h3>Eventos</h3>
