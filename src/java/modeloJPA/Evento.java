@@ -26,6 +26,7 @@ public class Evento implements Serializable {
     private String localizacion;
     private float precio;
     private float presupuesto;
+    private String descripcion;
     @ManyToMany(mappedBy="eventos")
     private List<Seccion> secciones;
     @OneToMany(mappedBy="comentarios")
@@ -34,6 +35,17 @@ public class Evento implements Serializable {
     private List<Asistencia> asistencia;
     @OneToMany(mappedBy="eventos")
     private List<Documento> documentos;
+    
+    
+    public Evento(Long id, String nombre, Date fecha, String localizacion, float precio, float presupuesto, String descripcion){
+        this.id=id;
+        this.nombre=nombre;
+        this.fecha=fecha;
+        this.localizacion=localizacion;
+        this.precio=precio;
+        this.presupuesto=presupuesto;
+        this.descripcion=descripcion;
+    }
     
     public List<Documento> getDocumentos(){
         return documentos;
@@ -103,6 +115,14 @@ public class Evento implements Serializable {
     }
     public void setId(Long id) {
         this.id = id;
+    }
+    
+    public String getDescripcion (){
+        return descripcion;
+    }
+    
+    public void setDescripcion(String descripcion){
+        this.descripcion=descripcion;
     }
     
     public static long getSerialVersionUID() {
