@@ -3,13 +3,31 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-                    
-    <ui:define name="title"> Eventos </ui:define>
-     
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">   
+    <ui:define name="head">
+        <link href="./css/inicio.css" rel="stylesheet" type="text/css" />
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css"></script>
+        
+    </ui:define>
+    <ui:define name="title">Grupo Scout 39 Santo Angel - Málaga</ui:define>
     <ui:define name="content">  
         <c:set var="event" value="#{manejadorEventos.evento}" />
-        <h2>#{event.nombre}</h2>
-        <p>#{event.descripcion}</p>
+        <div align="center">
+            <h2>#{event.nombre}</h2>
+            <br/>
+            <p>#{event.descripcion}</p>
+            <h:form>
+                <p>¿Asistira?</p>
+                <h:selectOneRadio value="">
+                    <f:selectItem class="radio-inline" itemValue="Si" itemLabel="Si"/>
+                    <f:selectItem class="radio-inline" itemValue="No" itemLabel="No"/>
+                </h:selectOneRadio>
+                <!--Poner formulario para indicar asistencia-->
+                <h:button value="volver" outcome="educandos.xhtml"></h:button>
+            </h:form>
+        </div>
     </ui:define>
 </ui:composition>
