@@ -55,6 +55,9 @@ public class Login implements Controlador{
         Usuario aux =null;
         boolean find = false;
         String cad=null;
+        if(usuario==null){
+            return "login.xhtml";
+        }
         do{
             aux = it.next();
             if(aux.getNombreusuario().equals(getUsuario()))
