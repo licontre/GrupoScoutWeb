@@ -30,6 +30,7 @@ public class Login implements Controlador{
     public Login(){
         usuarios = new ArrayList<>();
         usuarios.add(new Usuario("castor", "castor", Cargo.CASTORES));
+        usuarios.add(new Usuario("scouter", "scouter", Cargo.SCOUTER));
         usuarios.add(new Usuario("admin", "admin", Cargo.ADMIN));
     }
     

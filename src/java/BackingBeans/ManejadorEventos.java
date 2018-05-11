@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -28,7 +29,10 @@ public class ManejadorEventos implements Serializable{
     private List<Evento> eventos;
     private String nombreEvento;
     private Evento evento;
-    
+    private int dia,mes,ano;
+    private String loc;
+    private float precio,pres;
+    private String dsc;
     public ManejadorEventos(){
         eventos = new ArrayList<>();
         eventos.add(new Evento(1L,"Salida a la montaña",new Date(20180618111111L),"Malaga",300,30,"Alice was beginning to get very tired of sitting by her sister\n" +
@@ -122,6 +126,10 @@ public class ManejadorEventos implements Serializable{
 "bat?' when suddenly, thump! thump! down she came upon a heap of\n" +
 "sticks and dry leaves, and the fall was over."));
     }
+    public void crearEvento(){
+        Random r = new Random(System.currentTimeMillis());
+        eventos.add(new Evento(r.nextLong(),nombreEvento,new Date(2018, getMes(), getDia()), getLoc(), getPrecio(), getPres(), getDsc()));
+    }
     
     public List<Evento> getEventos(){      
         return eventos;
@@ -134,7 +142,8 @@ public class ManejadorEventos implements Serializable{
     public String getNombreEvento(){
         return nombreEvento;
     }
-
+    
+    
     /**
      * @return the evento
      */
@@ -147,5 +156,103 @@ public class ManejadorEventos implements Serializable{
      */
     public void setEvento(Evento evento) {
         this.evento = evento;
+    }
+
+    /**
+     * @return the dia
+     */
+    public int getDia() {
+        return dia;
+    }
+
+    /**
+     * @param dia the dia to set
+     */
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    /**
+     * @return the mes
+     */
+    public int getMes() {
+        return mes;
+    }
+
+    /**
+     * @param mes the mes to set
+     */
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    /**
+     * @return the ano
+     */
+    public int getAno() {
+        return ano;
+    }
+
+    /**
+     * @param ano the ano to set
+     */
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    /**
+     * @return the loc
+     */
+    public String getLoc() {
+        return loc;
+    }
+
+    /**
+     * @param loc the loc to set
+     */
+    public void setLoc(String loc) {
+        this.loc = loc;
+    }
+
+    /**
+     * @return the precio
+     */
+    public float getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    /**
+     * @return the pres
+     */
+    public float getPres() {
+        return pres;
+    }
+
+    /**
+     * @param pres the pres to set
+     */
+    public void setPres(float pres) {
+        this.pres = pres;
+    }
+
+    /**
+     * @return the dsc
+     */
+    public String getDsc() {
+        return dsc;
+    }
+
+    /**
+     * @param dsc the dsc to set
+     */
+    public void setDsc(String dsc) {
+        this.dsc = dsc;
     }
 }
