@@ -34,7 +34,7 @@ public class ControlAutorizacion implements Serializable {
          if(usuario.getCargo()==Usuario.Cargo.CASTORES){
             cad="inicio.xhtml";
         }else if(usuario.getCargo()==Usuario.Cargo.MONITOR){
-            cad="loginR.xhtml";
+            cad="inicioM.xhtml";
         }else{
             cad="login.xhtml";
         }

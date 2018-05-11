@@ -33,7 +33,11 @@ public class Login implements Controlador{
         usuarios.add(new Usuario("monitor", "monitor", Cargo.MONITOR));
         usuarios.add(new Usuario("admin", "admin", Cargo.ADMIN));
     }
-    
+    public void reset(){
+        this.usuario = null;
+        this.password = null;
+        this.ctrl = null;
+    }
     public String getUsuario() {
         return usuario;
     }
