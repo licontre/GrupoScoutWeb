@@ -122,34 +122,6 @@ public class ControlDocumento implements Serializable {
         }
     }
  
-    
-      public void subirPDF(){
-        try{
-            String pdf_usuario = nombre_usuario;
-            InputStream input = archivo.getInputStream();
-            File file = new File("C:\\Users\\gutir\\Documents\\INFORMÁTICA\\SISTEMAS DE INFORMACIÓN PARA INTERNET\\GITHUB\\GrupoScoutWeb\\web\\imagenes\\fotos_usuarios\\"+pdf_usuario+".pdf");
-            
-            if(!file.exists()){
-                file.createNewFile();
-            }
-            
-            FileOutputStream output = new FileOutputStream(file);
-            byte[] buffer = new byte[1024];
-            int length;
-            
-            while((length=input.read(buffer))>0){
-                output.write(buffer, 0, length);
-            }
-            
-            input.close();
-            output.close();
-            
-        } catch(Exception e){
-            e.printStackTrace(System.out);
-        }
-    }
-    
-    
     public ControlDocumento() {
     }
     
