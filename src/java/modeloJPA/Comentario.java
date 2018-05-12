@@ -26,6 +26,12 @@ public class Comentario implements Serializable {
     @ManyToOne
     private Evento comentarios;
     
+    
+    public Comentario(Date fecha, String comentario){
+        this.fecha=fecha;
+        this.comentario=comentario;
+    }
+    
     public Date getFecha() {
         return fecha;
     }

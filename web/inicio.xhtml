@@ -4,7 +4,8 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
                 xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">   
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions">   
     <ui:define name="head">
         <link href="./css/inicio.css" rel="stylesheet" type="text/css" />
          <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
@@ -19,25 +20,6 @@
         <div class="container">
             <div class="row my-row">
                 <div class="col-9"> 
-                    <div>
-                        <h2> Evento de prueba</h2>
-                        <div class="datos">
-                            <table>
-                                <tr>
-                                    <td>Admin</td>
-                                    <td>01/01/2018</td>
-                                    <td>Grupo</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque orci neque, 
-                            pellentesque ac fringilla vel, luctus ac justo. Sed dolor metus, bibendum at massa at, 
-                            dignissim consequat leo. Suspendisse pretium elit quam, vitae fringilla leo feugiat a
-                            Maecenas tristique ex sem, at finibus est malesuada a. Curabitur elit risus, sollicitudin
-                            eu dolor id, venenatis aliquam tortor. 
-                        </p>
-                        <h:button value="Seguir leyendo" outcome="inicio.xhtml"/> 
-                    </div>
                     <ui:repeat var="event" value="#{manejadorEventos.eventos}"> 
                         <h:form>
                             <h2>#{event.nombre}</h2>
@@ -50,7 +32,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <p>     #{event.descripcion}</p>
+                            <p>#{fn:substring(event.descripcion,0,150)}...</p>
                             <h:commandButton value="Seguir leyendo" action="verEvento.xhtml">
                                 <f:actionListener binding="#{manejadorEventos.setEvento(event)}"/>
                             </h:commandButton>
