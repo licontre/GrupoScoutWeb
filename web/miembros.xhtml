@@ -1,0 +1,198 @@
+<ui:composition template="/WEB-INF/templates/plantilla_1.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">   
+    <ui:define name="title">Secretaría</ui:define>
+<ui:define name="content">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css"></link>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+      <title>Modifica Datos</title>
+ </head>
+
+  <body>  
+    <div class="container-fluid text-center">
+      <div id="buscador" class="container col-11 mx-sm-5 p-4 rounded-top">
+        <form class="form-inline mt-2 mt-md-0">
+            <input id="searchText" type="text" name="buscar" placeholder="Buscar" onkeyup='doSearch()'></input>
+          <button class="btn my-2 my-sm-0" style="color: #3a4d47; background-color: #FFF">Buscar</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-10">
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="imagenes/Secretaria/kazoo.png" alt="Card image cap"></img>
+        <div class="card-body">
+          <h5 class="card-title">Pepito Pepitez</h5>
+            <p class="card-text" style="font-weight: 600">Educando</p>
+            <p class="card-text">89245568L</p>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changeInfoModal">Ver</button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="changeInfoModal" tabindex="-1" role="dialog" aria-labelledby="changeInfoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="changeInfoModalLabel">Datos</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <section id="wrapper-reg" class="d-flex p-3 mx-auto flex-column text-center">
+                    <form id="modifica" class="text-left" action="" method="GET">
+                      <!-- No se muestran -->
+                      <div class="form-group row" style="display:none">
+                        <label class="col-sm-6 col-form-label" for="password">Contraseña</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" id="password" name="password" value=""></input>
+                        </div>
+                      </div>
+                      <div style="display:none" class="form-group row">
+                        <label class="col-sm-6 col-form-label" for="dni">DNI</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="dni" name="dni" value=""></input>
+                        </div>
+                      </div>
+                      <div style="display:none" class="form-group row">
+                        <label class="col-sm-6 col-form-label" for="credencial">Credencial</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="credencial" name="credencial" value=""></input>
+                        </div>
+                      </div>
+                      <div style="display:none" class="form-group row">
+                        <label class="col-sm-6 col-form-label" for="fech_nac">Fecha Nacimiento</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="fech_nac" name="fech_nac" value=""></input>
+                        </div>
+                      </div>
+                      <!-- Sí se muestra -->
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label class="" for="alias">Alias</label>
+                          <input type="text" class="form-control" id="alias" name="alias" value=""></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="" for="foto_perfil">Foto perfil</label>
+                          <input type="file" class="form-control-file" id="foto_perfil" name="foto_perfil" value=""></input>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label class="" for="nombre">Nombre</label>
+                          <input type="text" class="form-control" id="nombre" name="nombre" value="Pepito" placeholder="Pepito"></input>
+                        </div>
+                        <div class="form-group col-md-6"> 
+                          <label class="" for="apellido">Apellido</label>
+                          <input type="text" class="form-control" id="apellido" name="apellido" value=""></input>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label class="" for="sexo">Sexo</label>
+                          <div class="col-sm-6">
+                            <select class="form-control">
+                              <option value="femenino">Femenino</option>
+                              <option value="masculino">Masculino</option>
+                              <option value="otro">Otro</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="" for="cargo">Cargo</label>
+                          <div class="col-md-6">
+                            <select class="form-control">
+                              <option value="secretaria">Secretaría</option>
+                              <option value="educandos">Educandos</option>
+                              <option value="coordinador">Coordinador</option>
+                              <option value="responsable">Responsable</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="" for="mail">Correo</label>
+                        <input type="text" class="form-control" id="mail" name="mail" value=""></input>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-10">
+                          <label class="" for="calle">Calle</label>
+                          <input type="text" class="form-control" id="calle" name="calle" value=""></input>
+                        </div>
+                        <div class="form-group col-md-2">
+                          <label class="" for="c_postal">Código Postal</label>
+                          <input type="text" class="form-control" id="c_postal" name="c_postal" value=""></input>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label class="" for="localidad">Localidad</label>
+                          <input type="text" class="form-control" id="localidad" name="localidad" value=""></input>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="" for="provincia">Provincia</label>
+                          <input type="text" class="form-control" id="provincia" name="provincia" value=""></input>
+                        </div>
+                      </div>  
+
+                      <div class="form-group row">
+                        <label class="col-sm-6 col-form-label" for="fech_alta">Fecha de alta</label>
+                        <div class="col-sm-6">
+                            <input type="text" readonly="14-3-1998" class="form-control-plaintext" id="fech_alta" name="fech_alta" value="05-05-2018"></input>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 col-form-label" for="fech_baja">Fecha de baja</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="fech_baja" name="fech_baja" value=""></input>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 col-form-label" for="fech_promesa">Fecha de promesa</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="fech_promesa" name="fech_promesa" value=""></input>
+                        </div>
+                      </div>
+                      <div id="envio">
+                          <input id="button" class="btn btn-lg btn-success" type="submit" name="button" value="Enviar"></input>
+                          <input type="hidden" name="user" value=""></input>
+                      </div> 
+                      <a class="btn" href="">Volver</a> 
+                      </form>
+                    </section>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>     
+  </body>
+<script src="JS/buscador.js"></script>
+</ui:define>
+</ui:composition>
