@@ -23,6 +23,13 @@ public class Cuota implements Serializable {
     @OneToMany( mappedBy ="pagoscuota")
     private List<PagoCuota> cuotas;
     
+    public Cuota(Long id,float impr,String name,String dsc,List<PagoCuota>cuot){
+        this.id=id;
+        this.importe = impr;
+        this.nombre = name;
+        this.descripcion = dsc;
+        this.cuotas = cuot;
+    }
     public List<PagoCuota> getCuotas(){
         return cuotas;
     }
