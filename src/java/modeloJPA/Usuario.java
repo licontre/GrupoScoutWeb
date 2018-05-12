@@ -61,10 +61,13 @@ public class Usuario implements Serializable {
     private List<Documento> documentos;
    
     //Este metodo es especifico para la tarea 2
-    public Usuario(String nombreusuario, String password, Cargo cargo ){
+    public Usuario(String nombreusuario, String password, Cargo cargo,String nombre,String ap ){
         setNombreusuario(nombreusuario);
         setPassword(password);
         setCargo(cargo);
+        setApellidos(ap);
+        setNombre(nombre);
+        setProvincia("Malaga");
     }
     public Long getId() {
         return id;

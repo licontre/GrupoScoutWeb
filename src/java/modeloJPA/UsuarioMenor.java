@@ -24,8 +24,8 @@ public class UsuarioMenor extends Usuario{
     private Long id;
 
     //Añadido no se porque pero es para quitar un error que da
-    public UsuarioMenor(String nombreusuario, String contrasenia, Cargo cargo) {
-        super(nombreusuario, contrasenia, cargo);
+    public UsuarioMenor(String nombreusuario, String contrasenia, Cargo cargo,String nombre, String ap) {
+        super(nombreusuario, contrasenia, cargo,nombre,ap);
     }
 
     public Long getId() {
