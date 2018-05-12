@@ -27,6 +27,16 @@ public class ControlPagos implements Serializable {
     private Usuario usuario;
     private Cuota cuota;
     private List <Cuota> listaCuotas;
+    private List<PagoCuota> listaPagosCuota;
+    private float importePagoCuota;
+
+    public List<PagoCuota> getListaPagosCuota() {
+        return listaPagosCuota;
+    }
+
+    public void setListaPagosCuota(List<PagoCuota> listaPagosCuota) {
+        this.listaPagosCuota = listaPagosCuota;
+    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -66,17 +76,17 @@ public class ControlPagos implements Serializable {
         
         Cuota c1 = new Cuota (1L, 100, "primera cuota", "inscripcion",listac1);
         
-        PagoCuota pago1 = new PagoCuota (1L, new Date(2017, 5 , 28),u1 , c1);
-        PagoCuota pago2 = new PagoCuota (2L, new Date(2017, 9 , 28),u1 , c1);
+        PagoCuota pago1 = new PagoCuota (11L, new Date(2017, 5 , 28),u1 , c1);
+        PagoCuota pago2 = new PagoCuota (12L, new Date(2017, 9 , 28),u1 , c1);
         
         listac1.add(pago1);
         listac1.add(pago2);
         
         
-        Cuota c2 = new Cuota (2L, 120, "primera cuota", "inscripcion",listac2);
+        Cuota c2 = new Cuota (2L, 120, "segunda cuota", "inscripcion",listac2);
         
-        PagoCuota pago3 = new PagoCuota (3L, new Date(2017, 5 , 30),u1 , c1);
-        PagoCuota pago4 = new PagoCuota (4L, new Date(2017, 9 , 8),u1 , c1);
+        PagoCuota pago3 = new PagoCuota (23L, new Date(2017, 5 , 30),u1 , c1);
+        PagoCuota pago4 = new PagoCuota (24L, new Date(2017, 9 , 8),u1 , c1);
         
         listac2.add(pago3);
         listac2.add(pago4);
@@ -84,8 +94,23 @@ public class ControlPagos implements Serializable {
         listaCuotas = new ArrayList<Cuota>();
         listaCuotas.add(c1);
         listaCuotas.add(c2);
+        listaPagosCuota = new ArrayList<PagoCuota>();
+        listaPagosCuota.add(pago1);
+        listaPagosCuota.add(pago2);
+        listaPagosCuota.add(pago3);
+        listaPagosCuota.add(pago4);
         
         
+        
+        
+    }
+    
+    
+    public Float importePago(Cuota cuota){
+        float importe = 0;
+        int aux = cuota.getCuotas().size();
+        
+        return cuota.getImporte()/aux;
         
     }
     

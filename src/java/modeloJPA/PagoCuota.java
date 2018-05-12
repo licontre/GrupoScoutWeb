@@ -26,6 +26,9 @@ public class PagoCuota implements Serializable {
     private Cuota pagoscuota;
     
     
+
+    
+    
     public PagoCuota (Long id, Date fecha, Usuario u, Cuota cuota){
         
         this.id = id;
