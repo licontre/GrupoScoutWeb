@@ -3,44 +3,68 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
+    <ui:define name="head"> 
+        <script type='text/javascript' src="./JS/editarDocumentos.js"/>
+    </ui:define>
+
+    <ui:define name="title">Documentos</ui:define>
 
 
-<ui:define name="title">Documentos</ui:define>
+    <ui:define name="content">
 
-<ui:define name="content">
-    
-    <div class="container">
-  <h2>Documentos</h2>
-  <p>En esta página puede ver y editar sus documentos</p>
-  <div id="accordion">
-      <h:form>
-      <ui:repeat var="doc" value="#{manejadorDocumentos.documentos}"> 
-      <div class="card">
-      <div class="card-header">
-          <a class="card-link" data-toggle="collapse" href="##{doc.id}">
-          #{doc.nombre}
-        </a>
-      </div>
-      <div id="#{doc.id}" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-            <p><strong>Estado: </strong>#{doc.estado}</p>
-            <p><strong>Copia del documento: </strong>#{doc.copiadocumento}</p>
-            <h:commandButton value="Editar" action="/editardocumento.xhtml">
-                <f:actionListener binding="#{manejadorDocumentos.setDocumento(doc)}"/>
-            </h:commandButton>
+        <div class="container">
+            <h2>Documentos</h2>
+            <p>En esta página puede ver y editar sus documentos</p>
+            <h:form>
+                <p:dataTable var="doc" value="#{manejadorDocumentos.documentos}" editable="true">         
+               <!--     <p:ajax event="rowEdit" listener="#{manejadorDocumentos.onRowEdit}" update=":form:msgs" />
+                    <p:ajax event="rowEditCancel" listener="#{manejadorDocumentos.onRowCancel}" update=":form:msgs" />    -->          
+                    <p:column headerText="Nombre">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{doc.nombre}" /></f:facet>
+                            <f:facet name="input"><p:inputText id="modelInput" value="#{doc.nombre}" style="width:100%"/></f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Cambiar Documento">
+                        <p:cellEditor disabled="true">
+                            <f:facet name="output">
+
+                                <h:form enctype="multipart/form-data">
+                                    <h:inputFile value="#{manejadorDocumentos.fich}"/>   
+                                    <h:commandButton value="Subir" action="#{manejadorDocumentos.subir()}"/>
+                                </h:form>
+                            </f:facet>                          
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Copia Documento">
+                        <p:cellEditor disabled="true">
+                            <f:facet name="output">
+                                <a href="./docmentos/documento_descargar.pdf" download="true">
+                                    <img border="0" src="./imagenes/download.png"/>
+                                </a>
+                            </f:facet>                          
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Estado">
+                        <p:cellEditor disabled="true">                  
+
+                            <f:facet name="output"><h:outputText value="#{doc.estado}" /></f:facet>
+                            <f:facet name="input"><p:inputText value="#{doc.estado}" style="width:100%" label="Year"/></f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column style="width:32px">
+                        <p:rowEditor />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
         </div>
-      </div>
-    </div>
-      </ui:repeat>
-      </h:form>
-  </div>
-</div>
-    
-</ui:define>
+
+    </ui:define>
+
 
 
 
