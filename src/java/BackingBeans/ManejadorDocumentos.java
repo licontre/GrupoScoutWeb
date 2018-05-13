@@ -5,7 +5,11 @@
  */
 package BackingBeans;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +20,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.Part;
 import modeloJPA.Documento;
 import modeloJPA.Evento;
 
@@ -33,6 +38,7 @@ public class ManejadorDocumentos implements Serializable{
     private List<Documento> documentos;
     private String nombreDocumento;
     private Documento documento;
+    private Part fich;
     
     public ManejadorDocumentos(){
         documentos = new ArrayList<>();

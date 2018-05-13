@@ -16,11 +16,12 @@
         <script type='text/javascript' src="./JS/jquery.js"/>
         <!--Bootstrap-->
         <link href="css/bootstrap.css" rel="stylesheet"/>
+        <link href="css/PlantillaCss.css" rel="stylesheet"/>
         <script type='text/javascript' src="./JS/bootstrap.js"/> 
         <ui:insert name="head"> </ui:insert>
     </h:head>
     <h:body>
-        <nav id="navegar-castores" class="navbar navbar-expand-sm fixed-top">      
+        <nav id="navegar" class="navbar navbar-expand-sm fixed-top">      
             <div class="container-fluid">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -28,6 +29,9 @@
                     </li>
                     <li class="nav-item">
                         <h:button class="nav-link" value="Documentos" outcome="verDocumentos.xhtml"/>
+                    </li>
+                    <li class="nav-item">
+                        <h:button class="nav-link" value="Mi eventos" outcome="verMisEventos.xhtml"/>
                     </li> 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
