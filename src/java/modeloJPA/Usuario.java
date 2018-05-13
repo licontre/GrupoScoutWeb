@@ -37,7 +37,7 @@ public class Usuario implements Serializable {
     private String codigopostal;
     private String localidad;
     private String provincia;
-    public enum Cargo {CASTORES,MANADA,TROPA,UNIDAD,CLAN,SCOUTER,ADMIN,MONITOR,SECRETARIA};
+    public enum Cargo {CASTORES,MANADA,TROPA,UNIDAD,CLAN,SCOUTER,MONITOR,SECRETARIA};
     @Enumerated(EnumType.STRING)
     private Cargo cargo;
     private String email;

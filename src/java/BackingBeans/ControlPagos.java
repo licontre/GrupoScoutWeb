@@ -63,7 +63,7 @@ public class ControlPagos implements Serializable {
         List<PagoCuota> listac2= new ArrayList<PagoCuota>();
         
         Usuario u1 = new Usuario("castor", "castor", Cargo.CASTORES,"Lola","Martin");
-        Usuario u2 = new Usuario ("admin", "admin", Cargo.ADMIN,"Roci","Casa");
+        Usuario u2 = new Usuario ("admin", "admin", Cargo.SECRETARIA,"Roci","Casa");
         
         Cuota c1 = new Cuota (1L, 100, "primera cuota", "inscripcion",listac1);
         
