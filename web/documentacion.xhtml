@@ -45,10 +45,16 @@
                     <h:outputText value="#{doc.estado}"></h:outputText>
                 </h:column>
                 <h:column>
+                        <f:facet name="header">Cambiar Documento</f:facet>
+                        <h:inputFile value="#{manejadorDocumentos.fich}" />
+                        <h:commandButton class="btn btn-primary" value="subir" action="#{manejadorDocumentos.upload()}"/> 
+                </h:column>
+                <h:column>
                     <h:commandButton value="Editar" class="btn btn-primary" action="/editardocumentoS.xhtml">
                         <f:actionListener binding="#{manejadorDocumentos.setDocumento(doc)}"/>
                     </h:commandButton>
                 </h:column>
+
            </h:dataTable>
         </h:form>
     </div>

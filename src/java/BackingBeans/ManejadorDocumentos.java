@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BackingBeans;
 
 import java.io.File;
@@ -11,18 +6,16 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import java.util.Map;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+
+
 import javax.servlet.http.Part;
 import modeloJPA.Documento;
-import modeloJPA.Evento;
 
 
 
@@ -30,22 +23,23 @@ import modeloJPA.Evento;
  *
  * @author PC
  */
-
-@ManagedBean(name="manejadorDocumentos", eager=true)
+@ManagedBean(name = "manejadorDocumentos", eager = true)
 @SessionScoped
-public class ManejadorDocumentos implements Serializable{
-    
+public class ManejadorDocumentos implements Serializable {
+
     private List<Documento> documentos;
     private String nombreDocumento;
     private Documento documento;
     private Part fich;
+
     
     public ManejadorDocumentos(){
+
         documentos = new ArrayList<>();
-        documentos.add(new Documento(1L,"Documento 1","Modificandose", "contenido del documentos",".txt"));
-        documentos.add(new Documento(2L,"Documento 2","Actualizado", "contenido del documentos2 esta lleno",".txt"));
-        documentos.add(new Documento(3L,"Documento 3","Finalizado", "contenido del documentos, final",".txt"));
-        documentos.add(new Documento(4L,"Documento 4","Actualizado", "contenido del documento4 esta completo",".txt"));
+        documentos.add(new Documento(1L, "Documento 1", "Modificandose", "contenido del documentos", ".txt"));
+        documentos.add(new Documento(2L, "Documento 2", "Actualizado", "contenido del documentos2 esta lleno", ".txt"));
+        documentos.add(new Documento(3L, "Documento 3", "Finalizado", "contenido del documentos, final", ".txt"));
+        documentos.add(new Documento(4L, "Documento 4", "Actualizado", "contenido del documento4 esta completo", ".txt"));
     }
 
     /**
@@ -90,7 +84,6 @@ public class ManejadorDocumentos implements Serializable{
         this.documento = documento;
     }
 
-
     /**
      * @return the fich
      */
@@ -133,7 +126,4 @@ public class ManejadorDocumentos implements Serializable{
             System.err.print(ex);
         }
     }
-
 }
-
-
