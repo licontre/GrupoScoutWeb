@@ -12,11 +12,12 @@ import java.io.Serializable;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.servlet.http.Part;
 import modeloJPA.Documento;
+
+
 
 /**
  *
@@ -100,4 +101,29 @@ public class ManejadorDocumentos implements Serializable {
             Files.copy(input, new File("C:/Users/PC/Documents/doc.pdf").toPath());
         }
     }
+    
+    
+    
+    public String getFileName(Part part)
+    {
+        for(String cd:part.getHeader("content-disposition").split(";"))
+            if(cd.trim().startsWith("filename")){
+                String filename=cd.substring(cd.indexOf('=')+1).trim().replace("\"", "");
+                return filename;
+            }
+        return "";
+                
+    }
+    public void upload()
+    {
+        try{
+        fich.write("C:/Users/PC/Documents/"+getFileName(fich));
+        }
+        catch(Exception ex)
+        {
+            System.err.print(ex);
+        }
+    }
 }
+
+
