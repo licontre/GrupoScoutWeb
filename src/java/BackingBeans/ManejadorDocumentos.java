@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+
+
 import javax.servlet.http.Part;
 import modeloJPA.Documento;
 
@@ -27,7 +32,9 @@ public class ManejadorDocumentos implements Serializable {
     private Documento documento;
     private Part fich;
 
-    public ManejadorDocumentos() {
+    
+    public ManejadorDocumentos(){
+
         documentos = new ArrayList<>();
         documentos.add(new Documento(1L, "Documento 1", "Modificandose", "contenido del documentos", ".txt"));
         documentos.add(new Documento(2L, "Documento 2", "Actualizado", "contenido del documentos2 esta lleno", ".txt"));
