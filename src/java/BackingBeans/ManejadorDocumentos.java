@@ -5,38 +5,37 @@
  */
 package BackingBeans;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
-import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.servlet.http.Part;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import modeloJPA.Documento;
+import modeloJPA.Evento;
 
 /**
  *
  * @author PC
  */
-@ManagedBean(name = "manejadorDocumentos", eager = true)
-@SessionScoped
-public class ManejadorDocumentos implements Serializable {
 
+@ManagedBean(name="manejadorDocumentos", eager=true)
+@SessionScoped
+public class ManejadorDocumentos implements Serializable{
+    
     private List<Documento> documentos;
     private String nombreDocumento;
     private Documento documento;
-    private Part fich;
-
-    public ManejadorDocumentos() {
+    
+    public ManejadorDocumentos(){
         documentos = new ArrayList<>();
-        documentos.add(new Documento(1L, "Documento 1", "Modificandose", "contenido del documentos", ".txt"));
-        documentos.add(new Documento(2L, "Documento 2", "Actualizado", "contenido del documentos2 esta lleno", ".txt"));
-        documentos.add(new Documento(3L, "Documento 3", "Finalizado", "contenido del documentos, final", ".txt"));
-        documentos.add(new Documento(4L, "Documento 4", "Actualizado", "contenido del documento4 esta completo", ".txt"));
+        documentos.add(new Documento(1L,"Documento 1","Modificandose", "contenido del documentos",".txt"));
+        documentos.add(new Documento(2L,"Documento 2","Actualizado", "contenido del documentos2 esta lleno",".txt"));
+        documentos.add(new Documento(3L,"Documento 3","Finalizado", "contenido del documentos, final",".txt"));
+        documentos.add(new Documento(4L,"Documento 4","Actualizado", "contenido del documento4 esta completo",".txt"));
     }
 
     /**
@@ -80,24 +79,5 @@ public class ManejadorDocumentos implements Serializable {
     public void setDocumento(Documento documento) {
         this.documento = documento;
     }
-
-    /**
-     * @return the fich
-     */
-    public Part getFich() {
-        return fich;
-    }
-
-    /**
-     * @param fich the fich to set
-     */
-    public void setFich(Part fich) {
-        this.fich = fich;
-    }
-
-    public void subir() throws IOException {
-        try (InputStream input = fich.getInputStream()) {
-            Files.copy(input, new File("C:/Users/PC/Documents/doc.pdf").toPath());
-        }
-    }
+   
 }
