@@ -17,7 +17,8 @@
         </div>
         <div id="tag-light-grey">
             <div class="container" align="center">
-                <h:form>    
+                <h:form>
+                    <h:inputText class="form-control" value="#{doc.nombre}"/>
                 <h:inputTextarea class="form-control" rows="50" id="visor" value="#{doc.copiadocumento}"/>
                 <br/>
                 <h:commandButton value="Guardar" type="submit"></h:commandButton>
