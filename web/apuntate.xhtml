@@ -6,7 +6,6 @@
                 xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">   
     <ui:define name="title">Grupo Scout 39 Santo Angel - Málaga</ui:define>
-    
     <ui:define name="content">
         <h:head>
             <link href="./css/apuntate.css" rel="stylesheet" type="text/css" />
@@ -17,7 +16,6 @@
         <div id="tag-light-grey">
             <div class="tag-light-grey container">
                 <h1>Apuntate</h1>
-                
             </div>
         </div>
         <div id="tag-grey">
@@ -31,7 +29,6 @@
                     <li class="item4"></li>
                     <li class="item5"></li>
                   </ol>
-
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner">
                     <div class="item active">
@@ -41,7 +38,6 @@
                         <p>De 8 a 11 años.</p>
                       </div>
                     </div>
-
                     <div class="item">
                       <h:graphicImage value="/imagenes/Apuntate/tropa.jpg" class="tales" alt="La Tropa"/>
                       <div class="carousel-caption">
@@ -49,7 +45,6 @@
                         <p>De 11 a 14 años.</p>
                       </div>
                     </div>
-
                     <div class="item">
                         <h:graphicImage value="/imagenes/Apuntate/unidad.jpg" class="tales" alt="La Unidad"/>
                         <div class="carousel-caption">
@@ -57,7 +52,6 @@
                             <p>De 14 a 17 años.</p>
                         </div>
                     </div>
-                  
                     <div class="item">
                         <h:graphicImage value="/imagenes/Apuntate/clan.jpg" class="tales" alt="El Clan"/>
                         <div class="carousel-caption">
@@ -65,7 +59,6 @@
                             <p>De 17 a 21 años.</p>
                         </div>
                     </div>
-                      
                     <div class="item">
                         <h:graphicImage value="/imagenes/Apuntate/adultos.jpg" class="tales" alt="Los Responsables"/>
                         <div class="carousel-caption">
@@ -73,9 +66,7 @@
                             <p>Los adultos que deseen formar parte de este proyecto educativo también son bienvenidos.</p>
                         </div>
                     </div>
-                  
                   </div>
-
                    <!-- Left and right controls -->
                     <a class="left carousel-control" href="#myCarousel" role="button">
                       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -117,54 +108,7 @@
                         });
                     });
                 </script>
-            
             </div>
-        </div>
-        <div  class="container-fluid" align="center" >
-                <div id="formulario">
-                    <h:panelGrid columns="1" id="tabla">
-                        <div class="form-group">
-                            <label for="target_email">Direccion de Correo Electronico:</label>
-                            <br/>
-                            <h:inputText value="correo electronico"/>
-                            <br/>                        
-                        </div>
-                        <div class="form-group">
-                            <label for="source_name">Nombre</label>
-                            <br/>
-                            <h:inputText  value="nombre"/>
-                            <br/>
-                        </div>
-                        <div class="form-group">
-                            <label for="source_email">Telefono</label>
-                            <br/>
-                            <h:inputText value="telefono"/>
-                            <br/>
-                        </div>
-                        <div class="form-group">
-                            <label for="source_email">¿Por qué está enteresado en unirse al grupo?</label>
-                            <br/>
-                            <h:inputTextarea rows="10" cols="40" value="Diganos ..."/>
-                            <br/>
-                        </div>
-                        <div class="form-group">
-                             <label for="source_email">¿Por qué seccion está interesado?</label>
-                            <h:selectOneMenu>
-                                <f:selectItem itemLabel="Manada"></f:selectItem>
-                                <f:selectItem itemLabel="Tropa"></f:selectItem>
-                                <f:selectItem itemLabel="Unidad"></f:selectItem>
-                                <f:selectItem itemLabel="Clan"></f:selectItem>                            
-                                <f:selectItem itemLabel="Responsables"></f:selectItem>
-                            </h:selectOneMenu>
-                            <br/>
-                        </div>
-
-                        <div class="form-group">
-                            <h:commandButton type="submit" value="Enviar" ></h:commandButton>
-                        </div>    
-                </h:panelGrid>
-                </div>
-            
         </div>
  </ui:define>
 </ui:composition>
