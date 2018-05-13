@@ -9,13 +9,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import java.util.Map;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import modeloJPA.Documento;
 import modeloJPA.Evento;
+
+
 
 /**
  *
@@ -79,5 +83,51 @@ public class ManejadorDocumentos implements Serializable{
     public void setDocumento(Documento documento) {
         this.documento = documento;
     }
-   
+
+
+    /**
+     * @return the fich
+     */
+    public Part getFich() {
+        return fich;
+    }
+
+    /**
+     * @param fich the fich to set
+     */
+    public void setFich(Part fich) {
+        this.fich = fich;
+    }
+
+    public void subir() throws IOException {
+        try (InputStream input = fich.getInputStream()) {
+            Files.copy(input, new File("C:/Users/PC/Documents/doc.pdf").toPath());
+        }
+    }
+    
+    
+    
+    public String getFileName(Part part)
+    {
+        for(String cd:part.getHeader("content-disposition").split(";"))
+            if(cd.trim().startsWith("filename")){
+                String filename=cd.substring(cd.indexOf('=')+1).trim().replace("\"", "");
+                return filename;
+            }
+        return "";
+                
+    }
+    public void upload()
+    {
+        try{
+        fich.write("C:/Users/PC/Documents/"+getFileName(fich));
+        }
+        catch(Exception ex)
+        {
+            System.err.print(ex);
+        }
+    }
+
 }
+
+

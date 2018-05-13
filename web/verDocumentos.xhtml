@@ -5,33 +5,47 @@
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
                 xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
-                xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+                xmlns:t="http://myfaces.apache.org/tomahawk">
+
+
+    <ui:define name="head"> 
+                <link href="./css/verDocumentos.css" rel="stylesheet" type="text/css" />
+    </ui:define>
 
 
 
-<ui:define name="title">Documentos</ui:define>
 
-<ui:define name="content">
-    
-    <div class="container">
-  <h2>Documentos</h2>
-  <p>En esta página puede ver y editar sus documentos</p>
-  <div id="accordion">
-      <h:form>
-      <ui:repeat var="doc" value="#{manejadorDocumentos.documentos}"> 
-      <div class="card">
-      <div class="card-header">
-          <a class="card-link" data-toggle="collapse" href="##{doc.id}">
-          #{doc.nombre}
-        </a>
-      </div>
-      <div id="#{doc.id}" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-            <p><strong>Estado: </strong>#{doc.estado}</p>
-            <p><strong>Copia del documento: </strong>#{doc.copiadocumento}</p>
-            <h:commandButton value="Editar" action="/editardocumento.xhtml">
-                <f:actionListener binding="#{manejadorDocumentos.setDocumento(doc)}"/>
-            </h:commandButton>
+
+    <ui:define name="content">
+
+        <div class="container">
+            <h2>Documentos</h2>
+            <p>En esta página puede ver y editar sus documentos</p>
+            <h:form enctype="multipart/form-data">
+                <h:dataTable var="doc" value="#{manejadorDocumentos.documentos}">
+                    <h:column>
+                        <f:facet name="header">Nombre</f:facet>
+                            #{doc.nombre}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Estado</f:facet>
+                            #{doc.estado}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Copia</f:facet>
+                        <a href="./documentos/documento_descargar.pdf" download="true">
+                            <img border="0" src="./imagenes/download.png" alt="Descargar"/>
+                        </a>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Cambiar Documento</f:facet>
+                        <h:inputFile value="#{manejadorDocumentos.fich}" />
+                        <h:commandButton value="subir" action="#{manejadorDocumentos.upload()}"/> 
+                    </h:column>
+                </h:dataTable>
+
+            </h:form>
+
         </div>
       </div>
     </div>
